@@ -1,15 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.biviss.gatlingelinjsonintellijplugin</id>
-    <name>gatling-el-in-json-intellij-plugin</name>
+    <name>Gatling-EL-in-JSON</name>
     <vendor>bivis-s</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.json</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.biviss.gatlingelinjsonintellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.biviss.gatlingelinjsonintellijplugin.startup.MyProjectActivity" />
+        <preFormatProcessor implementation="com.github.biviss.gatlingelinjsonintellijplugin.GatlingELPreFormatProcessor"/>
+        <postFormatProcessor implementation="com.github.biviss.gatlingelinjsonintellijplugin.GatlingELPostFormatProcessor"/>
     </extensions>
 </idea-plugin>
